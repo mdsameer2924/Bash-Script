@@ -1,5 +1,7 @@
 #!/bin/bash
 source ./exe.sh
+source ./open_vim.sh
+
 read -p "Enter the file name to check: " file
 if [[ -f $file ]]; then
 	echo "file is exist"
@@ -23,4 +25,12 @@ if [[ $choice == "y" || $choice == "Y" ]]; then
 else
 	echo "Cancel to executable"
 fi
-	
+echo ""
+read -p "Would you like to edit this file [Y/n]: " choose
+if [[ $choose == "y" || $choose == "Y" ]]; then
+	open $file
+
+else 
+	sleep 1
+	echo "script complete!"
+fi
