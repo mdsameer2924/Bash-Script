@@ -18,12 +18,14 @@ else
 fi
 
 echo ""
-read -p "Would you like to make it executable [Y/n]: " choice
-if [[ $choice == "y" || $choice == "Y" ]]; then
+if [[ ! -x $file ]];  then
+	read -p "Would you like to make it executable [Y/n]: " choice
+	if [[ $choice == "y" || $choice == "Y" ]]; then
 	echo "$file becoming executable .."
 	exe $file
-else
+	else
 	echo "Cancel to executable"
+	fi
 fi
 echo ""
 read -p "Would you like to edit this file [Y/n]: " choose
